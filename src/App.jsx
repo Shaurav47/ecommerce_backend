@@ -1,6 +1,9 @@
 import React from 'react'
-import { posts } from './data/data'
-import PostCard from './components/PostCard'
+
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import Home from './pages/home/Home';
+import About from './pages/about/About';
+import Contact from './pages/contact/Contact';
 
 //js in component/---props/--routing
 //how react render component/ hooks
@@ -8,31 +11,26 @@ import PostCard from './components/PostCard'
 
 export default function App() {
 
-  const person = {
-    address: {
-      primary: 'new road',
-      secondary: 'lalitpur'
-    }
-  };
+  const router = createBrowserRouter([
 
-  const { address: { primary, secondary } } = person;
+    {
+      path: '/',
+      element: <Home />
+    },
+    {
+      path: 'about',
+      element: <About />
+    },
+    {
+      path: 'contact',
+      element: <Contact />
+    },
 
-  return (
-    <div className='p-5'>
-
-      {posts.map((post) => {
-        return <PostCard key={post.id} post={post} />
-      })}
-
-
-
+  ]);
 
 
 
-
-
-    </div>
-  )
+  return <RouterProvider router={router} />
 }
 
 
