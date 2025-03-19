@@ -1,10 +1,10 @@
 import React from 'react'
-
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import RootLayout from './components/RootLayout';
+import NotFound from './pages/NotFound';
 
 //js in component/---props/--routing
 //how react render component/ hooks
@@ -21,16 +21,7 @@ export default function App() {
         {
           index: true,
           element: <Home />,
-          // children: [
-          //   {
-          //     index: true,
-          //     element: <Page1 />
-          //   },
-          //   {
-          //     path: 'page-2',
-          //     element: <Page2 />
-          //   },
-          // ]
+
         },
         {
           path: 'about',
@@ -42,6 +33,12 @@ export default function App() {
         },
 
       ]
+    },
+
+    {
+      path: '*',
+      element: <NotFound />
+
     }
 
 

@@ -7,7 +7,7 @@ export default function RootLayout() {
     <div>
 
       <Header />
-      kjgjkgbjhgbjh
+
       <Outlet />
 
     </div>
