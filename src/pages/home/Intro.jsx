@@ -1,3 +1,4 @@
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import React from 'react'
 
 export default function Intro() {
@@ -5,12 +6,23 @@ export default function Intro() {
     <div className='grid grid-cols-[1fr_1.7fr] items-center'>
 
       <div className=''>
+
+        {/* <DotLottieReact
+          src="https://lottie.host/d4290861-659d-4790-872c-85964be6152d/aqCug3yjlk.lottie"
+          loop
+          renderersettings={{
+            preserveAspectRatio: "soluta",
+          }}
+
+          autoplay
+        /> */}
         <dotlottie-player
-          src="https://lottie.host/264691cd-9e20-4eb0-9c62-a9b8efa3daac/4SIuBFaDQ5.lottie"
+          src="https://lottie.host/583960f3-7a13-4193-9f3f-b7035e356c23/Tzq5kJD5V8.lottie"
           background="transparent"
           speed="1"
           loop
           autoplay
+
         ></dotlottie-player>
       </div>
 

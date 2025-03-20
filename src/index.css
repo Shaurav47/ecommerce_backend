@@ -2,6 +2,19 @@
 
 
 
+/* @theme {
+  --color-some: "purple"
+} */
+
+/* @config {
+  theme: {
+    extend: {
+      colors: {
+        some: 'blue'
+      }
+    }
+  }
+} */
 
 h2 {
   font-size: 22px;
