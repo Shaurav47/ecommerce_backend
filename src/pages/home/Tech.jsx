@@ -5,7 +5,7 @@ import { DiDart, DiGithub, DiGo, DiJava, DiJavascript, DiNodejs, DiPython, DiRea
 
 export default function Tech() {
   return (
-    <div className='grid grid-cols-4 justify-items-center '>
+    <div className='grid grid-cols-(--my-grid) justify-items-center'>
 
       <DiReact className='hover:scale-110 hover:text-red-500 transition ease-out cursor-pointer duration-300 ' size={200} />
       <DiPython size={200} />
