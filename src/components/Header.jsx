@@ -7,7 +7,7 @@ export default function Header() {
       <h1 className='text-xl'>Tailwind</h1>
 
 
-      <nav className='space-x-5'>
+      <nav className='space-x-5 max-sm:hidden'>
 
         <NavLink className={(e) => e.isActive ? 'text-red-700' : ''} to={'/about'}>About</NavLink>
         <NavLink

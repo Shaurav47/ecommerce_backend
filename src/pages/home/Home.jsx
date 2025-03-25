@@ -1,40 +1,44 @@
 import React from 'react'
-import Intro from './Intro'
-import Tech from './Tech'
-import Info from './Info'
+import { useState } from 'react';
+
+
+
 
 export default function Home() {
+  const mi = [11, 22, 33];
+  const [a, b] = mi;
+
+
+
+
+  const [count, setCount] = useState(1);
+
+
+
+  const handleCount = () => {
+
+    setCount((prev) => {
+      return 9;
+    });
+    //  console.log(count);
+
+  }
+
+  console.log('render');
+  console.log(count);
+
+
   return (
-    <div className='p-4 max-sm:bg-amber-600'>
+    <div className='p-4'>
 
 
-      <button className='btn'>Click The Button</button>
+      <h1 className='text-2xl'>{count}</h1>
+
+
+      <button onClick={handleCount} className='bg-black text-white px-2 py-1 cursor-pointer'>Increment</button>
 
 
 
-      <button className='btn'>Click The Next Button</button>
-
-
-      <div className='card'>
-        <img src="https://sanet.pics/storage-11/0325/avif/th_KonShknPGMlxqZgP3hDnJXT6bpRGnJ6q.avif" alt="" />
-        <h2>hello jee</h2>
-      </div>
-
-
-      <div className='card'>
-        <img src="https://sanet.pics/storage-11/0325/avif/th_KonShknPGMlxqZgP3hDnJXT6bpRGnJ6q.avif" alt="" />
-        <h2>hello jee</h2>
-      </div>
-
-      <div className='h-[200px] w-[200px] bg-pink-400 flex-center'>
-        <h1>hello</h1>
-        <p>sello</p>
-        <h2>kello</h2>
-      </div>
-
-      <Intro />
-      <Tech />
-      <Info />
 
     </div>
   )
