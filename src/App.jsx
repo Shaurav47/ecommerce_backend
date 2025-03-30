@@ -5,6 +5,7 @@ import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import RootLayout from './components/RootLayout';
 import NotFound from './pages/NotFound';
+import CategoryItems from './pages/category_items/CategoryItems';
 
 //js in component/---props/--routing
 //how react render component/ hooks
@@ -23,6 +24,19 @@ export default function App() {
           element: <Home />,
 
         },
+
+        {
+          path: 'category-items/:label',
+          // /category-items/abc
+          // {label: 'abc'}
+          element: <CategoryItems />,
+
+        },
+
+
+
+
+
         {
           path: 'about',
           element: <About />
