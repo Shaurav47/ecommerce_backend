@@ -1,8 +1,6 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router';
 import Home from './pages/home/Home';
-import About from './pages/about/About';
-import Contact from './pages/contact/Contact';
 import RootLayout from './components/RootLayout';
 import NotFound from './pages/NotFound';
 import CategoryItems from './pages/category_items/CategoryItems';
@@ -37,14 +35,6 @@ export default function App() {
 
 
 
-        {
-          path: 'about',
-          element: <About />
-        },
-        {
-          path: 'contact',
-          element: <Contact />
-        },
 
       ]
     },

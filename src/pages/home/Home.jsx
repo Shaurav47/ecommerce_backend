@@ -1,14 +1,15 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 
 export default function Home() {
 
+  const nav = useNavigate();
+
   const [data, setData] = useState();
   const [load, setLoad] = useState(false);
-
-
 
   const getData = async () => {
     setLoad(true); /// calll
@@ -45,10 +46,16 @@ export default function Home() {
       <h1>Meals Caategory</h1>
 
       {data && data.categories?.map((cata) => {
-        return <div key={cata.idCategory}>
+        return <div
+          onClick={() => nav(`/category-items/${cata.strCategory}`)}
+          className='cursor-pointer'
+          key={cata.idCategory}
+        >
+
+
           <h1>{cata.strCategory}</h1>
           <img src={cata.strCategoryThumb} alt="" />
-          <p>{cata.strCategoryDescription}</p>
+          <p className='line-clamp-3'>{cata.strCategoryDescription}</p>
 
         </div>
       })}
