@@ -4,6 +4,7 @@ import Home from './pages/home/Home';
 import RootLayout from './components/RootLayout';
 import NotFound from './pages/NotFound';
 import CategoryItems from './pages/category_items/CategoryItems';
+import ItemDetail from './pages/item-detail/ItemDetail';
 
 //js in component/---props/--routing
 //how react render component/ hooks
@@ -25,12 +26,14 @@ export default function App() {
 
         {
           path: 'category-items/:label',
-          // /category-items/abc
-          // {label: 'abc'}
-          element: <CategoryItems />,
-
+          element: <CategoryItems />
         },
 
+
+        {
+          path: 'item-detail/:id',
+          element: <ItemDetail />
+        },
 
 
 
