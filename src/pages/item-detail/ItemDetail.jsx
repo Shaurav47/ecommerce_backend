@@ -4,7 +4,7 @@ import { useApiHooks } from '../../hooks/apiHooks';
 
 export default function ItemDetail() {
   const { id } = useParams();
-
+  //
   const [load, data, err] = useApiHooks('https://www.themealdb.com/api/json/v1/1/lookup.php', {
     i: id
   })
