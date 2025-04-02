@@ -1,36 +1,14 @@
-import { da } from '@faker-js/faker';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+
 import { useParams } from 'react-router'
+import { useApiHooks } from '../../hooks/apiHooks';
 
 export default function ItemDetail() {
   const { id } = useParams();
-  const [data, setData] = useState();
-  const [load, setLoad] = useState(false);
-  const [err, setErr] = useState();
 
-  const getData = async () => {
+  const [load, data, err] = useApiHooks('https://www.themealdb.com/api/json/v1/1/lookup.php', {
+    i: id
+  })
 
-    setLoad(true);
-    try {
-
-      const response = await axios.get('https://www.themealdb.com/api/json/v1/1/lookup.php', {
-        params: {
-          i: id
-        }
-      });
-      setData(response.data);
-      setLoad(false);
-
-    } catch (err) {
-      setLoad(false);
-      setErr(err.message);
-    }
-  }
-
-  useEffect(() => {
-    getData();
-  }, [])
 
   if (load) {
     return <h1>Loading....</h1>
@@ -57,7 +35,6 @@ export default function ItemDetail() {
   //   label: "lios"
   // };
 
-  console.log(data);
 
 
   return (

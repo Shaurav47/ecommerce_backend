@@ -5,6 +5,7 @@ import RootLayout from './components/RootLayout';
 import NotFound from './pages/NotFound';
 import CategoryItems from './pages/category_items/CategoryItems';
 import ItemDetail from './pages/item-detail/ItemDetail';
+import SearchPage from './pages/search/SearchPage';
 
 //js in component/---props/--routing
 //how react render component/ hooks
@@ -28,6 +29,11 @@ export default function App() {
           path: 'category-items/:label',
           element: <CategoryItems />
         },
+
+        // {
+        //   path: 'search-page/:query',
+        //   element: <SearchPage />
+        // },
 
 
         {
