@@ -1,66 +1,25 @@
 import React from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router';
-import Home from './pages/home/Home';
+import { createBrowserRouter } from 'react-router'
 import RootLayout from './components/RootLayout';
-import NotFound from './pages/NotFound';
-import CategoryItems from './pages/category_items/CategoryItems';
-import ItemDetail from './pages/item-detail/ItemDetail';
-import SearchPage from './pages/search/SearchPage';
-
-//js in component/---props/--routing
-//how react render component/ hooks
-
+import TodoPage from './pages/todo/TodoPage';
 
 export default function App() {
 
   const router = createBrowserRouter([
-
     {
       path: '/',
       element: <RootLayout />,
       children: [
         {
           index: true,
-          element: <Home />,
-
-        },
-
-        {
-          path: 'category-items/:label',
-          element: <CategoryItems />
-        },
-
-        // {
-        //   path: 'search-page/:query',
-        //   element: <SearchPage />
-        // },
-
-
-        {
-          path: 'item-detail/:id',
-          element: <ItemDetail />
-        },
-
-
-
-
-
+          element: <TodoPage />
+        }
       ]
-    },
-
-    {
-      path: '*',
-      element: <NotFound />
-
     }
-
-
-
   ]);
+  return (
+    <div>
 
-
-
-  return <RouterProvider router={router} />
+    </div>
+  )
 }
-
-
