@@ -1,3 +1,4 @@
+@config "../tailwind.config.js";
 @import "tailwindcss";
 
 
@@ -49,9 +50,17 @@
   button {
     @apply cursor-pointer;
   }
+
+  input {
+    @apply border-2 border-gray-500 w-[250px] px-3 py-[2px];
+  }
 }
 
 @layer components {
+
+
+
+
   .btn {
     @apply bg-black px-5 text-white rounded-2xl py-3 ring-2 ring-purple-500;
   }
