@@ -1,23 +1,21 @@
-import { Button } from '@material-tailwind/react'
+import { Button, Input, Textarea } from '@material-tailwind/react'
 import { Formik } from 'formik'
 import React from 'react'
 
 export default function TodoAdd() {
   return (
-    <div>
+    <div className='max-w-[400px]'>
       <Formik >
 
         {() => {
-          return <form>
+          return <form className='space-y-4'>
             <div>
-              <input type="text" name='title' className='' placeholder='Title' />
+              <Input label='Title' name='title' />
             </div>
             <div>
-              <textarea type="text" name='detail' className='' placeholder='Title' />
+              <Textarea label='Detail' name='detail' />
             </div>
-
-            <Button>My Button</Button>
-
+            <Button type='submit' className='py-2'>Submit</Button>
           </form>
         }}
 
