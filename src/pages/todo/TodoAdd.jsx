@@ -4,23 +4,28 @@ import React from 'react'
 
 export default function TodoAdd() {
   return (
-    <div className='max-w-[400px]'>
-      <Formik >
+    <div>
+
+      <Formik>
+
 
         {() => {
-          return <form className='space-y-4'>
+          return <form className='max-w-[400px] space-y-4'>
             <div>
               <Input label='Title' name='title' />
             </div>
             <div>
-              <Textarea label='Detail' name='detail' />
+              <Textarea label='Description' name='description' />
             </div>
-            <Button type='submit' className='py-2'>Submit</Button>
+
+
           </form>
         }}
 
 
       </Formik>
+
+
 
     </div>
   )
