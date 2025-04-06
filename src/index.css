@@ -1,6 +1,5 @@
-@config "../tailwind.config.js";
 @import "tailwindcss";
-
+@config "../tailwind.config.js";
 
 
 @theme {
@@ -51,9 +50,6 @@
     @apply cursor-pointer;
   }
 
-  input {
-    @apply border-2 border-gray-500 w-[250px] px-3 py-[2px];
-  }
 }
 
 @layer components {
