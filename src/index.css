@@ -42,9 +42,11 @@
 /* base layer , component layer utitlities */
 
 @layer base {
-  h2 {
-    @apply text-2xl font-bold;
+
+  h1 {
+    @apply text-xl font-bold;
   }
+
 
   button {
     @apply cursor-pointer;
