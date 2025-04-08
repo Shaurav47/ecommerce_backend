@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router'
 import RootLayout from './components/RootLayout';
 import TodoPage from './pages/todo/TodoPage';
 import { RouterProvider } from 'react-router-dom';
-import HomePage from './pages/home/HomePage';
+import TodoAdd from './pages/todo/TodoAdd';
 
 
 export default function App() {
@@ -17,11 +17,11 @@ export default function App() {
       children: [
         {
           index: true,
-          element: <HomePage />
+          element: <TodoPage />
         },
         {
           path: 'add-todo',
-          element: <TodoPage />
+          element: <TodoAdd />
         }
       ]
     }

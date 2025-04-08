@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-
-
-
 export const todoSlice = createSlice({
   name: 'todoSlice',
   initialState: {
@@ -13,6 +10,9 @@ export const todoSlice = createSlice({
 
     addTodo: (state, action) => {
       state.todos.push(action.payload);
+    },
+    updateTodo: (state, action) => {
+      //Todo:
     }
 
   }
