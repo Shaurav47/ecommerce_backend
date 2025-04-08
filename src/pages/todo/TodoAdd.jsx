@@ -1,7 +1,11 @@
 import { Button, Checkbox, Input, Option, Radio, Select, Textarea, Typography } from '@material-tailwind/react'
 import { Formik } from 'formik'
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
+import { addTodo } from './todoSlice';
+import { nanoid } from '@reduxjs/toolkit';
+import { useNavigate } from 'react-router';
 
 
 const todoSchema = Yup.object({
@@ -14,6 +18,9 @@ const todoSchema = Yup.object({
 });
 
 export default function TodoAdd() {
+
+  const dispatch = useDispatch();
+  const nav = useNavigate();
   return (
     <div>
 
@@ -28,7 +35,8 @@ export default function TodoAdd() {
         }}
 
         onSubmit={(val) => {
-          console.log(val);
+          dispatch(addTodo({ ...val, id: nanoid() }));
+          nav(-1);
         }}
         validationSchema={todoSchema}
 
