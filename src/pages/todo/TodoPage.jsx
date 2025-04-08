@@ -9,13 +9,12 @@ export default function TodoPage() {
   const { todos } = useSelector((state) => state.todoSlice);
 
 
-  console.log(todos);
   return (
     <div>
 
       {todos.length < 1 && <h1>Add Some Todos</h1>}
-      {todos.map((todo) => {
-        return <TodoCard key={todo.id} todo={todo} />;
+      {todos.map((todo, i) => {
+        return <TodoCard key={todo.id} todo={todo} index={i} />;
       })}
 
     </div>

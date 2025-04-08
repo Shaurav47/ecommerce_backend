@@ -13,10 +13,14 @@ export const todoSlice = createSlice({
     },
     updateTodo: (state, action) => {
       //Todo:
+    },
+    removeTodo: (state, action) => {
+      state.todos.splice(action.payload, 1);
+
     }
 
   }
 });
 
 
-export const { addTodo } = todoSlice.actions;
+export const { addTodo, removeTodo } = todoSlice.actions;
