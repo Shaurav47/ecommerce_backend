@@ -12,7 +12,7 @@ import { useNavigate } from "react-router";
 export function TodoCard({ todo, index }) {
   const nav = useNavigate();
   return (
-    <Card className="mt-6 w-96">
+    <Card className="">
       <CardBody>
         <svg
           xmlns="http://www.w3.org/2000/svg"

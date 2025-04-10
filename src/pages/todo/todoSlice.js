@@ -1,6 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAction, createSlice } from "@reduxjs/toolkit";
 import { getFromLocal, setToLocal } from "../../local/local_storage";
 
+export const reset = createAction('app/reset');
 
 export const todoSlice = createSlice({
   name: 'todoSlice',
@@ -23,6 +24,11 @@ export const todoSlice = createSlice({
       setToLocal(state.todos);
     }
 
+  },
+  extraReducers: (builder) => {
+    builder.addCase(reset, (state, action) => {
+      state.todos = [];
+    })
   }
 });
 

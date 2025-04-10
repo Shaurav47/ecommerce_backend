@@ -25,13 +25,12 @@ export function OpenDialog({ index }) {
     <>
       <IconButton
         onClick={handleOpen}
-
         color="pink" size="sm">
         <i className="fas fa-trash" />
       </IconButton>
       <Dialog
         size="sm"
-        className="opacity-65 backdrop-grayscale-100 backdrop-opacity-90 shadow-blue-200 drop-shadow-xl"
+        // className="bg-white/30 backdrop-invert backdrop-opacity-95"
         open={open} handler={handleOpen}>
         <DialogHeader>Its a simple dialog.</DialogHeader>
         <DialogBody>
