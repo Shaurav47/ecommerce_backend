@@ -1,10 +1,7 @@
 import React from 'react'
 import { createBrowserRouter } from 'react-router'
 import RootLayout from './components/RootLayout';
-import TodoPage from './pages/todo/TodoPage';
 import { RouterProvider } from 'react-router-dom';
-import TodoAdd from './pages/todo/TodoAdd';
-import TodoEdit from './pages/todo/TodoEdit';
 
 
 export default function App() {
@@ -17,17 +14,9 @@ export default function App() {
       element: <RootLayout />,
       children: [
         {
-          index: true,
-          element: <TodoPage />
+          index: true
         },
-        {
-          path: 'add-todo',
-          element: <TodoAdd />
-        },
-        {
-          path: 'edit-todo/:id',
-          element: <TodoEdit />
-        }
+
       ]
     }
   ]);
