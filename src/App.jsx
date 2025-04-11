@@ -5,7 +5,12 @@ import { RouterProvider } from 'react-router-dom';
 
 
 export default function App() {
+  // const m = () => ({
+  //   id: 1,
+  //   name: 'ram'
+  // });
 
+  // console.log(m());
 
 
   const router = createBrowserRouter([
