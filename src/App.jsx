@@ -2,15 +2,10 @@ import React from 'react'
 import { createBrowserRouter } from 'react-router'
 import RootLayout from './components/RootLayout';
 import { RouterProvider } from 'react-router-dom';
+import ProductList from './features/product/ProductList';
 
 
 export default function App() {
-  // const m = () => ({
-  //   id: 1,
-  //   name: 'ram'
-  // });
-
-  // console.log(m());
 
 
   const router = createBrowserRouter([
@@ -19,7 +14,8 @@ export default function App() {
       element: <RootLayout />,
       children: [
         {
-          index: true
+          index: true,
+          element: <ProductList />
         },
 
       ]
