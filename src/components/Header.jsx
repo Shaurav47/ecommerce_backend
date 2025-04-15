@@ -9,6 +9,8 @@ export default function Header() {
 
       <nav>
 
+        <NavLink to={'/add-blog'}>Add Blog</NavLink>
+
       </nav>
 
     </div>
