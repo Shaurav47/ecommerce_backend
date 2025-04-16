@@ -15,7 +15,7 @@ export default function ProductList() {
     return <h1>Loading....</h1>
   }
 
-
+  console.log('render');
 
   return (
     <div className='space-y-5'>

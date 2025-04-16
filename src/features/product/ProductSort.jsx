@@ -22,6 +22,7 @@ export default function ProductSort({ setQuery }) {
   return (
     <div className="w-72">
       <Select
+        //onChange={(e) => handleChange(e)}
         onChange={handleChange}
         name='sort'
         label="Sorting By">
