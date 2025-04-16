@@ -17,7 +17,7 @@ export default function App() {
       children: [
         {
           index: true,
-          element: <BlogList />
+          element: <ProductList />
         },
         {
           path: 'add-blog',

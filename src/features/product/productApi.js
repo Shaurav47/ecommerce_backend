@@ -10,9 +10,10 @@ export const productApi = createApi({
   endpoints: (builder) => ({
 
     getAllProducts: builder.query({
-      query: (q) => ({
+      query: (params) => ({
         url: '/',
-        method: 'GET'
+        method: 'GET',
+        params: params
       }),
 
     }),
