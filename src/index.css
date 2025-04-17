@@ -48,6 +48,8 @@
   }
 
 
+  p {}
+
   button {
     @apply cursor-pointer;
   }
