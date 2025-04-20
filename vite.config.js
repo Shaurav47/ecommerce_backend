@@ -5,13 +5,15 @@ const ReactCompilerConfig = { /* ... */ };
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react({
-      babel: {
-        plugins: [
-          ["babel-plugin-react-compiler", ReactCompilerConfig],
-        ],
-      },
-    }),
+    react(
+      {
+        babel: {
+          plugins: [
+            ["babel-plugin-react-compiler", ReactCompilerConfig],
+          ],
+        },
+      }
+    ),
     tailwindcss()
   ],
 })
