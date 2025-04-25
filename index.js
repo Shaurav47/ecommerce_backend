@@ -1,8 +1,22 @@
 import express from 'express';
 import morgan from 'morgan';
 import productRoutes from './routes/productRoutes.js';
+import mongoose from 'mongoose';
 
 const app = express();
+
+
+//data base connect
+
+mongoose.connect('mongodb+srv://rabyn900:moles900@cluster0.ikwdezp.mongodb.net/Shopify').then((val) => {
+
+  app.listen(5000, () => {
+    console.log('database connected and server is listening');
+  });
+}).catch((err) => {
+  console.log(err);
+});
+
 
 //middleware
 app.use(morgan('dev'));
@@ -27,6 +41,3 @@ app.use(productRoutes);
 // model banaune
 
 
-app.listen(5000, () => {
-  console.log('server is listening');
-});
