@@ -20,6 +20,10 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  rating: {
+    type: Number,
+    default: 0
+  },
   category: {
     type: String,
     enum: ["men's clothing", "women's clothing", "jewelery", "electronics"],

@@ -5,7 +5,16 @@ import Product from "../models/Product.js";
 export const getProducts = async (req, res) => {
   try {
 
-    const products = await Product.find();
+    const queryObject = { ...req.query };
+    const excludeFields = ['sort', 'page', 'limit', 'fields', 'skip']
+
+    excludeFields.forEach((label) => delete queryObject[label])
+    delete queryObject['sort'];
+
+
+    const products = await Product.find(queryObject).sort(req.query.sort);
+
+
     return res.status(200).json(products);
   } catch (err) {
     return res.status(500).json({ message: `${err}` });
