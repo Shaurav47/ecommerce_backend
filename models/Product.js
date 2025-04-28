@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
-
+export const categories = ["men's clothing", "women's clothing", "jewelery", "electronics"];
+export const brands = ["Apple", "Samsung", "Addidas", "Google", "Tanishq"];
 
 const productSchema = new mongoose.Schema({
   title: {
@@ -26,12 +27,12 @@ const productSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ["men's clothing", "women's clothing", "jewelery", "electronics"],
+    enum: categories,
     required: true
   },
   brand: {
     type: String,
-    enum: ["Apple", "Samsung", "Addidas", "Google", "Tanishq"],
+    enum: brands,
     required: true
   }
 }, { timestamps: true });
