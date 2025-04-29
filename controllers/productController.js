@@ -1,5 +1,12 @@
 import Product, { brands, categories } from "../models/Product.js";
 
+
+export const getTop5 = (req, res, next) => {
+  req.query.rating = { $gt: 4.5 };
+  req.query.limit = 5;
+  next();
+}
+
 export const getProducts = async (req, res) => {
   try {
 
@@ -7,12 +14,15 @@ export const getProducts = async (req, res) => {
     const excludeFields = ['sort', 'page', 'limit', 'fields', 'skip', 'search']
 
     excludeFields.forEach((label) => delete queryObject[label])
-    delete queryObject['sort'];
-    //let qryStr = JSON.stringify(queryObject);
-    // qryStr = qryStr.replace(/\b(gte|gt|lte|lt|eq)\b/g, match => `$${match}`);
-    // console.log(JSON.parse(qryStr));
-    // console.log(queryObject);
-    // {rating: {$gt: 4}}
+
+    // let qryStr = JSON.stringify(queryObject);
+    // // Replace "gt", "gte", "lt", "lte", "eq" inside the keys
+    // qryStr = qryStr.replace(/\[(gte|gt|lte|lt|eq)\]/g, (_, operator) => `":{"$${operator}":`);
+
+    // console.log(qryStr);
+    console.log(req.query);
+
+    let query = Product.find(queryObject);
 
 
     if (req.query.search) {
@@ -28,11 +38,6 @@ export const getProducts = async (req, res) => {
 
 
     }
-
-    let query = Product.find(queryObject);
-
-
-
 
     if (req.query.sort) {
       const sorting = req.query.sort.split(/[\s,]+/).filter(Boolean).join(' ');
@@ -70,9 +75,9 @@ export const addProduct = async (req, res) => {
   try {
 
 
-    await Product.create({
-      title, description, price, image, category, brand
-    });
+    // await Product.create({
+    //   title, description, price, image, category, brand
+    // });
 
     return res.status(200).json({ message: 'product added successfully' });
   } catch (err) {

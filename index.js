@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import productRoutes from './routes/productRoutes.js';
 import mongoose from 'mongoose';
+import fileUpload from 'express-fileupload';
 
 const app = express();
 
@@ -21,9 +22,14 @@ mongoose.connect('mongodb+srv://rabyn900:moles900@cluster0.ikwdezp.mongodb.net/S
 //middleware
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(fileUpload({
+  limits: { fileSize: 5 * 1024 * 1024 },
+  abortOnLimit: true
+}));
 
 
 app.get('/', (req, res) => {
+
   return res.status(200).json({
     message: 'Welcome to Backened',
   });
