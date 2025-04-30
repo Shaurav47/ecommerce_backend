@@ -1,5 +1,6 @@
 import Product, { brands, categories } from "../models/Product.js";
-
+import fs from 'fs';
+import mongoose from "mongoose";
 
 export const getTop5 = (req, res, next) => {
   req.query.rating = { $gt: 4.5 };
@@ -71,17 +72,24 @@ export const getProduct = (req, res) => {
 
 
 export const addProduct = async (req, res) => {
-  const { title, description, price, image, category, brand } = req.body;
+  const { title, description, price, category, brand } = req.body;
   try {
-
-
-    // await Product.create({
-    //   title, description, price, image, category, brand
-    // });
-
+    await Product.create({
+      title,
+      description,
+      price,
+      image: req.image,
+      category,
+      brand
+    });
     return res.status(200).json({ message: 'product added successfully' });
   } catch (err) {
-    return res.status(400).json({ message: `${err}` });
+    fs.unlink(`./uploads${req.image}`, (imageErr) => {
+
+      return res.status(400).json({ message: `${err}` });
+    });
+
+
   }
 }
 
@@ -91,6 +99,17 @@ export const addProduct = async (req, res) => {
 export const updateProduct = (req, res) => {
   return res.status(200).json({ message: 'addProducts' });
 }
-export const removeProduct = (req, res) => {
-  return res.status(200).json({ message: 'addProducts' });
+
+export const removeProduct = async (req, res) => {
+  const product = req.product;
+  try {
+    fs.unlink(`./uploads${product.image}`, async (imageErr) => {
+      if (imageErr) return res.status(400).json({ message: `${imageErr}` });
+      await Product.findByIdAndDelete(product._id);
+    })
+    return res.status(200).json({ message: 'product removed successfully' });
+  } catch (err) {
+    return res.status(400).json({ message: `${err}` });
+
+  }
 }

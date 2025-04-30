@@ -27,6 +27,8 @@ app.use(fileUpload({
   abortOnLimit: true
 }));
 
+app.use(express.static('uploads'));
+
 
 app.get('/', (req, res) => {
 

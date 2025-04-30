@@ -1,4 +1,4 @@
-
+import { v4 as uuidv4 } from 'uuid';
 
 const supportedTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
 
@@ -8,8 +8,10 @@ export const fileCheck = (req, res, next) => {
   if (file) {
 
     if (supportedTypes.includes(file.mimetype)) {
-      file.mv(`./uploads/${file.name}`, (err) => {
+      const imageFile = `/${uuidv4()}-${file.name}`
+      file.mv(`./uploads${imageFile}`, (err) => {
         if (err) return res.status(400).json({ message: `${err}` });
+        req.image = imageFile;
         next();
       });
 
