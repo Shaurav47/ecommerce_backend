@@ -1,12 +1,13 @@
 import Product, { brands, categories } from "../models/Product.js";
 import fs from 'fs';
-import mongoose from "mongoose";
+
 
 export const getTop5 = (req, res, next) => {
   req.query.rating = { $gt: 4.5 };
   req.query.limit = 5;
   next();
 }
+
 
 export const getProducts = async (req, res) => {
   try {
@@ -85,7 +86,6 @@ export const addProduct = async (req, res) => {
     return res.status(200).json({ message: 'product added successfully' });
   } catch (err) {
     fs.unlink(`./uploads${req.image}`, (imageErr) => {
-
       return res.status(400).json({ message: `${err}` });
     });
 
@@ -96,9 +96,43 @@ export const addProduct = async (req, res) => {
 
 
 
-export const updateProduct = (req, res) => {
-  return res.status(200).json({ message: 'addProducts' });
+export const updateProduct = async (req, res) => {
+  const product = req.product;
+  const { title, description, price, category, brand } = req.body;
+  try {
+
+    product.title = title || product.title;
+    product.description = description || product.description;
+    product.price = price || product.price;
+    product.category = category || product.category;
+    product.brand = brand || product.brand;
+    if (req.image) {
+      fs.unlink(`./uploads${product.image}`, async (err) => {
+        product.image = req.image;
+        await product.save();
+      })
+    } else {
+      await product.save();
+    }
+
+    return res.status(200).json({ message: 'product updated successfully' });
+  } catch (err) {
+    fs.unlink(`./uploads${req.image}`, (imageErr) => {
+      return res.status(400).json({ message: `${err}` });
+    });
+
+
+  }
 }
+
+
+
+
+
+
+
+
+
 
 export const removeProduct = async (req, res) => {
   const product = req.product;
