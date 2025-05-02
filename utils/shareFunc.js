@@ -3,6 +3,3 @@ export const notAllowed = (req, res) => {
 }
 
 
-// export const idCheck = (res, id) => {
-//   if (!mongoose.isValidObjectId(id)) return res.status(400).json({ message: 'invalid product id' });
-// }

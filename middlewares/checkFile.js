@@ -2,6 +2,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 const supportedTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
 
+
+
+
 export const fileCheck = (req, res, next) => {
   const file = req.files?.image;
 
