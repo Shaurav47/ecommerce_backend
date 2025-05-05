@@ -4,7 +4,7 @@ import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import mongoose from 'mongoose';
 import fileUpload from 'express-fileupload';
-
+import cors from 'cors';
 
 
 const app = express();
@@ -21,8 +21,8 @@ mongoose.connect('mongodb+srv://rabyn900:moles900@cluster0.ikwdezp.mongodb.net/S
   console.log(err);
 });
 
-
 //middleware
+app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(fileUpload({
