@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const supportedTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
+const supportedTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif', 'image/webp'];
 
 
 
