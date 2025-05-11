@@ -67,7 +67,11 @@ export const getProducts = async (req, res) => {
 }
 
 export const getProduct = (req, res) => {
-  return res.status(200).json({ message: 'addProducts' });
+  try {
+    return res.status(200).json(req.product);
+  } catch (err) {
+    return res.status(500).json({ message: `${err}` });
+  }
 }
 
 

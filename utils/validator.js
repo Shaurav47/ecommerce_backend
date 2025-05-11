@@ -21,7 +21,7 @@ export const registerSchema = Joi.object({
 
 
 export const productValSchema = Joi.object({
-  title: Joi.string().min(10).required(),
+  title: Joi.string().min(5).required(),
   description: Joi.string().required(),
   price: Joi.number().required(),
   rating: Joi.number(),
