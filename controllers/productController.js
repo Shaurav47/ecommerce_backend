@@ -22,7 +22,7 @@ export const getProducts = async (req, res) => {
     // qryStr = qryStr.replace(/\[(gte|gt|lte|lt|eq)\]/g, (_, operator) => `":{"$${operator}":`);
 
     // console.log(qryStr);
-    console.log(req.query);
+
 
     let query = Product.find(queryObject);
 
