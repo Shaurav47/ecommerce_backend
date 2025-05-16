@@ -1,16 +1,14 @@
 import express from 'express';
-import { createOrder, getOrders, getUserOrders } from '../controllers/orderController.js';
-import { adminCheck, userCheck } from '../middlewares/userCheck.js';
+import { createOrder, getOrderDetail, getOrders } from '../controllers/orderController.js';
+import { userCheck } from '../middlewares/userCheck.js';
 import { notAllowed } from '../utils/shareFunc.js';
 
 
 const router = express.Router();
 
 
-router.route('/').get(userCheck, adminCheck, getOrders)
-  .post(userCheck, createOrder)
-  .all(notAllowed);
-
-router.route('/users').get(userCheck, getUserOrders);
+router.route('/').post(userCheck, createOrder).all(notAllowed);
+router.route('/users').get(userCheck, getOrders).all(notAllowed);
+router.route('/:id').get(getOrderDetail).all(notAllowed);
 
 export default router;

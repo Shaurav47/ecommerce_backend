@@ -4,25 +4,30 @@ import Order from "../models/Order.js";
 
 export const getOrders = async (req, res) => {
   try {
-    const orders = await Order.find({});
-    return res.status(200).json(orders);
+    if (req.role === 'admin') {
+      const orders = await Order.find({});
+      return res.status(200).json(orders);
+    } else {
+      const orders = await Order.find({ userId: req.userId }).select('-orderItems');
+      return res.status(200).json(orders);
+    }
+
   } catch (err) {
     return res.status(400).json({ message: `${err}` });
   }
 }
 
-
-export const getUserOrders = async (req, res) => {
-
+export const getOrderDetail = async (req, res) => {
+  const { id } = req.params;
   try {
-    const orders = await Order.find({ userId: req.userId });
-    return res.status(200).json(orders);
+    const order = await Order.findById(id);
+    return res.status(200).json(order);
   } catch (err) {
-
     return res.status(400).json({ message: `${err}` });
-
   }
 }
+
+
 
 export const createOrder = async (req, res) => {
   const { totalAmount, orderItems } = req.body;
