@@ -34,7 +34,23 @@ const productSchema = new mongoose.Schema({
     type: String,
     enum: brands,
     required: true
-  }
+  },
+  reviews: [
+    {
+      username: {
+        type: String,
+        required: true
+      },
+      rating: {
+        type: Number,
+        required: true
+      },
+      comment: {
+        type: String,
+        required: true
+      }
+    }
+  ]
 }, { timestamps: true });
 
 

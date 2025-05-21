@@ -17,6 +17,7 @@ export const login = async (req, res) => {
     return res.status(200).json({
       token,
       role: isExist.role,
+      username: isExist.username
     });
 
   } catch (err) {

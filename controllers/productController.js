@@ -151,3 +151,25 @@ export const removeProduct = async (req, res) => {
 
   }
 }
+
+
+export const reviewProduct = async (req, res) => {
+  const { id } = req.params
+  const { username, rating, comment } = req.body;
+  console.log(req.body);
+  try {
+
+    const isExist = await Product.findById(id);
+    if (!isExist) return res.status(404).json({ message: 'product not found' });
+
+    isExist.reviews.push({ username, rating, comment });
+    const avgRating = isExist.reviews.reduce((acc, curr) => acc + curr.rating, 0) / isExist.reviews.length;
+    isExist.rating = avgRating;
+    await isExist.save();
+    return res.status(200).json({ message: 'review added successfully' });
+  } catch (err) {
+    return res.status(400).json({ message: `${err}` });
+
+  }
+}
+
