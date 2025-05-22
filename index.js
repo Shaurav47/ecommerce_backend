@@ -23,7 +23,11 @@ mongoose.connect('mongodb+srv://rabyn900:moles900@cluster0.ikwdezp.mongodb.net/S
 });
 
 //middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173'],
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
+  credentials: true
+}));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(fileUpload({

@@ -14,6 +14,15 @@ export const login = async (req, res) => {
       role: isExist.role
     }, 'secret');
 
+    res.cookie(
+      'jwt',
+      token, {
+      httpOnly: true,
+      maxAge: 24 * 60 * 60 * 1000,
+      secure: true,
+      sameSite: 'none'
+    });
+
     return res.status(200).json({
       token,
       role: isExist.role,
