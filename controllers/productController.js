@@ -3,7 +3,7 @@ import fs from 'fs';
 
 
 export const getTop5 = (req, res, next) => {
-  req.query.rating = { $gt: 4.5 };
+  req.query.rating = { $gte: 4 };
   req.query.limit = 5;
   next();
 }
