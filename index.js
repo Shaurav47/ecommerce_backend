@@ -5,6 +5,7 @@ import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import mongoose from 'mongoose';
 import fileUpload from 'express-fileupload';
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
 
@@ -21,7 +22,7 @@ mongoose.connect('mongodb+srv://rabyn900:moles900@cluster0.ikwdezp.mongodb.net/S
 }).catch((err) => {
   console.log(err);
 });
-
+app.use(cookieParser())
 //middleware
 app.use(cors({
   origin: ['http://localhost:5173', 'https://mern-magn.vercel.app'],
