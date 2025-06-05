@@ -57,7 +57,7 @@ export const getProducts = async (req, res) => {
     const skip = (page - 1) * 10;
 
 
-    const products = await query.skip(skip).limit(limit).select('title rating price image');
+    const products = await query.skip(skip).limit(limit).select('title rating price image category brand');
 
 
     return res.status(200).json(products);
