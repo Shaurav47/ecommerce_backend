@@ -56,11 +56,14 @@ export const getProducts = async (req, res) => {
     const limit = req.query.limit || 10;
     const skip = (page - 1) * 10;
 
-
+    const total = await Product.countDocuments();
     const products = await query.skip(skip).limit(limit);
 
-
-    return res.status(200).json(products);
+    return res.status(200).json({
+      products,
+      total: total,
+      pages: Math.ceil(total / limit)
+    });
   } catch (err) {
     return res.status(500).json({ message: `${err}` });
   }
@@ -73,6 +76,17 @@ export const getProduct = (req, res) => {
     return res.status(500).json({ message: `${err}` });
   }
 }
+export const getProductByCategory = async (req, res) => {
+  const { category } = req.params
+  console.log(category);
+  try {
+    const products = await Product.find({ category });
+    return res.status(200).json(products);
+  } catch (err) {
+    return res.status(500).json({ message: `${err}` });
+  }
+}
+
 
 
 
